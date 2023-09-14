@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+}
+
+body {
+    font-family: helvetica, arial, sans-serif;
+    max-width: 100vw;
+    overflow: hidden;
+    backface-visibility: 10;
+    min-height: 100vh;
+    background-color: #0c192c;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bubbles {
+    position: relative;
+    display: flex;
+}
+
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3dc;
+    margin: 0 24px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s/ var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+
+h3 {
+    color: #FF6F00;
+    margin: 2rem 0 0 2rem;
+}
+
+video {
+    display: block;
+}
+
+section {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+
+.removed {
+    display: none;
+}
+
+.invisible {
+    opacity: 0.8;
+}
+
+.camView {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    float: left;
+    width: 100%;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.camView p {
+    position: absolute;
+    padding: 5px;
+    background-color: rgba(255, 111, 0, 0.85);
+    color: #FFF;
+    border: 1px dashed rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    font-size: 12px;
+}
+
+.highlighter {
+    background: rgba(0, 255, 0, 0.25);
+    border: 1px dashed #fff;
+    z-index: 1;
+    position: absolute;
+}
+
+#webcamButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: aqua;
+    background-color: transparent;
+    border: 2px solid aqua;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 0px 50px aqua;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#webcamButton:hover {
+    background-color: aqua;
+    color: black;
+    box-shadow: 0px 0px 100px aqua;
+    outline: none;
+}
+
+.scanner {
+    position: absolute;
+    top: 13%;
+    left: calc(50% - 11px);
+    transform: translate(-50%, -50%);
+    float: left;
+    width: 800px;
+    margin: 10px;
+    cursor: pointer;
+    height: 3px;
+    background: aqua;
+    z-index: 10;
+    animation: mymove 5s infinite;
+    box-shadow: 0px 0px 10px aqua;
+}
+
+@keyframes mymove {
+    0% {
+        top: 150px;
+    }
+    50% {
+        top :600px;
+    }
+    100% {
+        top :150px;
+    }
+}
+
+h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    color: hsla(236, 56%, 15%, 20%);
+    text-align: center;
+    position: absolute;
+}
+
+h2::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    color: #01fa87;
+    border-right: 2px solid #01fa87;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: textanimate 2s linear infinite;
+}
+
+@keyframes textanimate {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%; 
+    }
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#tag {
+    margin-left: 2rem;
+    text-transform: uppercase;
+}
+
+#content {
+    font-weight: bold;
+    font-size: 25px;
+    color: #01fe87;
+    text-align: center;
+    margin: 5rem auto;
+}
+
+#scanner_footer {
+    text-transform: capitalize;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 4rem 2rem 0;
+}
+
+#scan_complete {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: 0px 0px 10px aqua;
+}
